@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Kaden Peterson — Accounting Student & Business Development Intern" />
+  <title>Kaden Peterson | Personal Website</title>
+
+  <style>
+    :root{
+      --bg: #0b1220;
+      --card: rgba(255,255,255,0.06);
+      --card2: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --muted2: rgba(255,255,255,0.55);
+      --line: rgba(255,255,255,0.12);
+      --accent: #7c3aed; /* purple */
+      --accent2: #22c55e; /* green */
+      --shadow: 0 18px 50px rgba(0,0,0,.40);
+      --radius: 18px;
+      --radius2: 14px;
+      --max: 1100px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(124,58,237,.30), transparent 55%),
+        radial-gradient(900px 600px at 85% 20%, rgba(34,197,94,.22), transparent 50%),
+        radial-gradient(1000px 700px at 50% 85%, rgba(56,189,248,.16), transparent 55%),
+        linear-gradient(180deg, #070b14 0%, #0b1220 30%, #070b14 100%);
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    a:hover{opacity:.9}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 64px}
+
+    /* Top nav */
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      position:sticky; top:14px; z-index:50;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:650; letter-spacing:.2px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: linear-gradient(135deg, var(--accent), #38bdf8);
+      box-shadow: 0 0 0 5px rgba(124,58,237,.18);
+    }
+    .navlinks{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .pill{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size:14px;
+    }
+    .pill:hover{background: rgba(255,255,255,0.07); color: var(--text)}
+    .cta{
+      padding:9px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.18);
+      background: linear-gradient(135deg, rgba(124,58,237,.75), rgba(56,189,248,.35));
+      color: rgba(255,255,255,.95);
+      font-weight:600;
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap:22px;
+      margin-top:22px;
+      align-items:stretch;
+    }
+    .card{
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .heroLeft{padding:26px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      font-size:13px; letter-spacing:.14em; text-transform:uppercase;
+      color: var(--muted2);
+    }
+    .kicker .bar{
+      height:1px; width:34px; background: rgba(255,255,255,0.22);
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(34px, 4vw, 50px);
+      line-height:1.05;
+      letter-spacing:-.02em;
+    }
+    .sub{
+      color: var(--muted);
+      font-size:16px;
+      line-height:1.6;
+      max-width: 60ch;
+    }
+    .metrics{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:10px;
+    }
+    .metric{
+      padding:14px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+    }
+    .metric .big{
+      font-size:18px;
+      font-weight:700;
+      letter-spacing:-.01em;
+    }
+    .metric .small{
+      margin-top:4px;
+      font-size:13px;
+      color: var(--muted2);
+      line-height:1.35;
+    }
+
+    .heroActions{
+      margin-top:16px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:11px 14px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.92);
+      font-weight:600;
+      font-size:14px;
+    }
+    .btn:hover{background: rgba(255,255,255,0.09)}
+    .btnPrimary{
+      background: linear-gradient(135deg, rgba(34,197,94,.62), rgba(124,58,237,.40));
+      border-color: rgba(255,255,255,0.18);
+    }
+    .btnIcon{
+      width:18px; height:18px; display:inline-block;
+      border-radius:6px;
+      background: rgba(255,255,255,0.12);
+      position:relative;
+    }
+    .btnIcon::after{
+      content:"";
+      position:absolute; inset:4px;
+      border-radius:4px;
+      background: linear-gradient(135deg, var(--accent), #38bdf8);
+      opacity:.9;
+    }
+
+    .heroRight{
+      display:flex; flex-direction:column;
+    }
+    .photo{
+      padding:22px;
+      display:flex; gap:14px; align-items:center;
+    }
+    .avatar{
+      width:92px; height:92px; border-radius: 18px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 12px 28px rgba(0,0,0,.35);
+      background: rgba(255,255,255,0.06);
+    }
+    .who .name{font-size:18px; font-weight:750; letter-spacing:-.01em}
+    .who .role{margin-top:3px; color: var(--muted); font-size:14px; line-height:1.35}
+    .chips{
+      margin-top:10px;
+      display:flex; flex-wrap:wrap; gap:8px;
+    }
+    .chip{
+      font-size:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+    }
+    .contact{
+      padding:0 22px 22px;
+      display:grid;
+      gap:10px;
+    }
+    .contact a{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.90);
+      font-size:14px;
+    }
+    .contact a span{color: var(--muted2); font-family: var(--mono); font-size:12px}
+    .contact a:hover{background: rgba(255,255,255,0.08)}
+
+    /* Sections */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      margin-top:16px;
+    }
+    .section{padding:18px 18px 16px}
+    .section h2{
+      margin:0 0 10px;
+      font-size:16px;
+      letter-spacing:.01em;
+    }
+    .section p{margin:0; color:var(--muted); line-height:1.6; font-size:14px}
+    .hr{height:1px; background: rgba(255,255,255,0.10); margin:12px 0}
+    .item{
+      padding:12px 12px;
+      border-radius: var(--radius2);
+      border:1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      margin-top:10px;
+    }
+    .itemTop{
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      align-items:baseline;
+    }
+    .itemTop .title{font-weight:700}
+    .itemTop .meta{color: var(--muted2); font-size:12px}
+    .item .bullets{margin:10px 0 0 0; padding-left:18px; color: var(--muted); font-size:14px; line-height:1.55}
+    .item .bullets li{margin:6px 0}
+    .tags{
+      display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;
+    }
+    .tag{
+      font-size:12px; padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+    }
+
+    /* Footer */
+    footer{
+      margin-top:18px;
+      padding:18px 16px;
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted2);
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      align-items:center;
+      font-size:13px;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero{grid-template-columns: 1fr; }
+      .metrics{grid-template-columns: 1fr; }
+      .grid{grid-template-columns: 1fr;}
+      .nav{position:relative; top:0}
+    }
+
+    /* Smooth scroll */
+    html{scroll-behavior:smooth}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="nav" role="navigation" aria-label="Primary">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Kaden Peterson</span>
+      </div>
+      <div class="navlinks">
+        <a class="pill" href="#about">About</a>
+        <a class="pill" href="#experience">Experience</a>
+        <a class="pill" href="#education">Education</a>
+        <a class="pill" href="#volunteer">Volunteer</a>
+        <a class="pill" href="#skills">Skills</a>
+        <a class="cta" href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <section class="hero" id="about">
+      <div class="card heroLeft">
+        <div class="kicker">
+          <span class="bar" aria-hidden="true"></span>
+          Accounting • Business Development • Sales
+        </div>
+
+        <h1>Accounting student building real-world business results.</h1>
+        <p class="sub">
+          I’m an Accounting major at Utah Valley University (anticipated graduation May 2026) with hands-on experience in
+          business development, prospecting campaigns, and accounting support work like reconciliations and audit prep.
+        </p>
+
+        <div class="metrics" aria-label="Highlights">
+          <div class="metric">
+            <div class="big">+40%</div>
+            <div class="small">Partner engagement through tailored content + research</div>
+          </div>
+          <div class="metric">
+            <div class="big">+30%</div>
+            <div class="small">Email prospecting response rates; +20% qualified leads</div>
+          </div>
+          <div class="metric">
+            <div class="big">$3.5M</div>
+            <div class="small">Sales revenue generated in 4 months (solar)</div>
+          </div>
+        </div>
+
+        <div class="heroActions">
+          <a class="btn btnPrimary" href="#experience">
+            <span class="btnIcon" aria-hidden="true"></span>
+            View experience
+          </a>
+          <a class="btn" href="#contact">
+            <span class="btnIcon" aria-hidden="true"></span>
+            Get in touch
+          </a>
+          <!-- Optional: If you add a PDF resume later, set href="Kaden-Peterson-Resume.pdf" -->
+          <!-- <a class="btn" href="Kaden-Peterson-Resume.pdf" target="_blank" rel="noopener">Download resume</a> -->
+        </div>
+      </div>
+
+      <aside class="card heroRight" id="contact">
+        <div class="photo">
+          <!-- Uses your repo image file. If you rename it, update this src. -->
+          <img class="avatar" src="Kaden%20Profile.png" alt="Profile photo of Kaden Peterson" />
+          <div class="who">
+            <div class="name">Kaden Peterson</div>
+            <div class="role">B.S. Accounting (May 2026) • Business Development / Accounting Intern</div>
+            <div class="chips" aria-label="Focus areas">
+              <span class="chip">Excel</span>
+              <span class="chip">QuickBooks</span>
+              <span class="chip">Financial modeling</span>
+              <span class="chip">Prospecting</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact" aria-label="Contact links">
+          <a href="mailto:Kadenpeterson25@gmail.com">
+            Email
+            <span>Kadenpeterson25@gmail.com</span>
+          </a>
+          <a href="tel:+14695007899">
+            Phone
+            <span>(469) 500-7899</span>
+          </a>
+          <a href="https://www.linkedin.com/in/kaden-peterson2" target="_blank" rel="noopener">
+            LinkedIn
+            <span>linkedin.com/in/kaden-peterson2</span>
+          </a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="grid" aria-label="Main content">
+      <div class="card section" id="experience">
+        <h2>Experience</h2>
+
+        <div class="item">
+          <div class="itemTop">
+            <div class="title">UI Charitable Advisors — Business Development / Accounting Intern</div>
+            <div class="meta">Orem, UT • Feb 2024 – Current</div>
+          </div>
+          <ul class="bullets">
+            <li>Created tailored, research-driven content for financial advisors, donors, and partners, boosting partner engagement by <strong>40%</strong>.</li>
+            <li>Managed email prospecting campaigns, improving response rates by <strong>30%</strong> and growing qualified leads by <strong>20%</strong>.</li>
+            <li>Supported audit preparation by filing K-1 forms and performing account reconciliations.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="itemTop">
+            <div class="title">Sunder — Account Manager (Solar Sales)</div>
+            <div class="meta">Houston, TX • Apr 2023 – Current</div>
+          </div>
+          <ul class="bullets">
+            <li>Generated approximately <strong>$3,500,000</strong> in sales revenue in four months.</li>
+            <li>Executed sales strategies to improve conversion and expand market share.</li>
+            <li>Maintained a <strong>65%</strong> realization rate converting leads into installed systems.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="itemTop">
+            <div class="title">Golden West Credit Union — Financial Service Representative</div>
+            <div class="meta">Logan, UT • Aug 2022 – Mar 2023</div>
+          </div>
+          <ul class="bullets">
+            <li>Top in sales two months in a row; averaged 5 new checking/savings accounts and multiple loan referrals.</li>
+            <li>Handled large transactions, personal/business wires, and nightly bank reconciliations.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card section" id="education">
+        <h2>Education</h2>
+
+        <div class="item">
+          <div class="itemTop">
+            <div class="title">Utah Valley University — B.S. Accounting</div>
+            <div class="meta">Orem, UT • Anticipated May 2026</div>
+          </div>
+          <ul class="bullets">
+            <li>GPA: <strong>3.34</strong></li>
+            <li>Member, <strong>Beta Alpha Psi</strong></li>
+          </ul>
+          <div class="tags" aria-label="Academic focus">
+            <span class="tag">Accounting</span>
+            <span class="tag">Business analysis</span>
+            <span class="tag">Professional development</span>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <h2 id="volunteer">Volunteer</h2>
+
+        <div class="item">
+          <div class="itemTop">
+            <div class="title">Community Harvest Food Bank — Volunteer Worker</div>
+            <div class="meta">Fort Wayne, IN • Oct 2021 – Jan 2022</div>
+          </div>
+          <ul class="bullets">
+            <li>Sorted and organized inventory to support efficient distribution.</li>
+            <li>Assisted with stock rotation and replenishment to reduce waste.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="itemTop">
+            <div class="title">The Church of Jesus Christ of Latter-Day Saints — Missionary</div>
+            <div class="meta">Indianapolis, IN • Jul 2020 – Jul 2022</div>
+          </div>
+          <ul class="bullets">
+            <li>Taught and led group discussions (2 to 200 people) daily; maintained an 80+ hour work week.</li>
+            <li>Led weekly goal-setting discussions and taught time management concepts.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Skills and interests">
+      <div class="card section" id="skills">
+        <h2>Skills</h2>
+        <p>Tools and strengths I bring to teams.</p>
+
+        <div class="item">
+          <div class="itemTop">
+            <div class="title">Core skills</div>
+            <div class="meta">Practical + results-focused</div>
+          </div>
+          <div class="tags">
+            <span class="tag">Excel</span>
+            <span class="tag">Word</span>
+            <span class="tag">PowerPoint</span>
+            <span class="tag">QuickBooks</span>
+            <span class="tag">Account reconciliations</span>
+            <span class="tag">Audit prep (K-1 filing)</span>
+            <span class="tag">Prospecting campaigns</span>
+            <span class="tag">Sales strategy</span>
+            <span class="tag">Financial modeling</span>
+            <span class="tag">Data visualization</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card section">
+        <h2>What I’m looking for</h2>
+        <p>
+          Internship and early-career opportunities where I can contribute across accounting, analysis,
+          and revenue-support work—while continuing to sharpen technical and client-facing skills.
+        </p>
+
+        <div class="item">
+          <div class="itemTop">
+            <div class="title">Fast ways to collaborate</div>
+            <div class="meta">Email is best</div>
+          </div>
+          <ul class="bullets">
+            <li>Accounting support: reconciliations, documentation, audit readiness</li>
+            <li>Growth support: outreach campaigns, lead qualification, CRM hygiene</li>
+            <li>Reporting: lightweight dashboards, clear summaries for decision-making</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <strong>Kaden Peterson</strong> <span style="opacity:.55">•</span>
+        Accounting (May 2026) • Orem, UT
+      </div>
+      <div style="opacity:.8">
+        Built as a single-file GitHub Pages site • <span style="font-family:var(--mono)">&copy; <span id="y"></span></span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // tiny enhancement: current year
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
